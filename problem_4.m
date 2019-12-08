@@ -13,15 +13,15 @@ else
         vox = vo*cosd(theta);
         voy = vo*sind(theta);
      %computing for time at the end of the projection:
-        num = (-voy - (voy*voy - 2*ay*ho)^(1/2)); 
+        num = (-voy - (voy*voy - 2*ay)^(1/2)); 
         time = num/ay; 
     %establishing equations for plotting (actual) 
      t = linspace(0,time);
      if t > 0 
          x = vox.*t + 0.5.*ax.*t.*t;
-         y = (voy.*t + 0.5.*-ay.*t.*t+ho);
+         y = (voy.*t + 0.5.*-ay.*t.*t + ho);
      elseif t<=0
-         q = (voy + (voy*voy - 2*ay*ho)^(1/2))/ay;
+         q = (voy + (voy*voy - 2*ay)^(1/2))/ay;
          i = linspace(0,q);
          x = vox.*i + 0.5.*ax.*i.*i;
          y = voy.*i + 0.5.*-ay.*i.*i+ho;
@@ -35,12 +35,12 @@ else
      t = linspace(0,time);
      if t > 0 
          x = vox.*t;
-         y = voy.*t + 0.5.*9.8.*t.*t+ho;
+         y = voy.*t + 0.5.*9.8.*t.*t + ho;
      elseif t<=0
-         q = (voy + (voy*voy - 2*ay*ho)^(1/2))/ay;
+         q = (voy + (voy*voy - 2*ay)^(1/2))/ay;
          i = linspace(0,q);
          x = vox.*i;
-         y = voy.*i + 0.5.*-9.8.*i.*i+ ho;
+         y = voy.*i + 0.5.*-9.8.*i.*i + ho;
      end
  plot(x,y, '--y', 'linewidth',1); hold on; grid on;
  xlabel('distance in meters');
