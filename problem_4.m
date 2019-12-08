@@ -46,4 +46,5 @@ else
  xlabel('distance in meters');
  ylabel('height in meters');
  title('Graph of the Projectile Motion');
+ legend('actual projectile motion','ideal projectile motion')
 end 
